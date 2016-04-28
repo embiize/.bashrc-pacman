@@ -1,0 +1,64 @@
+Install python-pip & git di Debian, Ubuntu dan Linux Mint
+
+    $ sudo apt-get install python-pip git 
+
+
+Install python-pip & git di CentOS, RHEL & Fedora
+
+    $ sudo yum install python-pip git
+    $ sudo dnf install python-pip git (Fedora 22 & latest version)
+
+Kalau python-pip dan git sudah di install selanjutnya sobat install Powerline dengan perintah pip sebagai berikut.
+
+    $ sudo pip install --user git+git://github.com/Lokaltog/powerline
+
+Edit file .profile bisa dengan gedit, nano, leafpad atau yang lainnya kemudian sobat tambahkan perintah ini 
+di baris paling bawah.
+
+
+    if [ -d "$HOME/.local/bin" ];
+        then PATH="$HOME/.local/bin:$PATH"
+        fi
+
+Save dan close file nya, lalu sobat install kembali bash powerline dengan perintah berikut
+
+    $ su -c 'pip install git+git://github.com/Lokaltog/powerline'
+
+Install powerline symbol dengan eksekusi perintah dibawah ini satu persatu
+
+    $ wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+    $ wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+    $ sudo mv PowerlineSymbols.otf /usr/share/fonts/
+    $ fc-cache -vf
+    $ fc-cache -vf
+    $ sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
+
+Install patched powerline dengan perintah
+
+    $ git clone https://github.com/Lokaltog/powerline-fonts.git
+    $ sudo mv powerline-fonts/ /usr/share/fonts/truetype
+
+Update font nya sekali lagi
+
+    $ fc-cache -vf
+
+Selanjutnya download powerline dengan git.
+
+    $ git clone https://github.com/milkbikis/powerline-shell
+
+Masuk ke folder powerline-shell dengan perintah cd powerline-shell, copy file config.py.dist 
+dan install file ./install.py dengan perintah berikut
+
+    $ cp config.py.dist config.py
+    $ ./install.py  
+
+Selanjutnya lihat apakah ada file powerline-shell.py ? 
+kalau ada silahkan sobat copy ke direktory /home dan direktory /root agar powerline bisa 
+di jalankan baik dengan mode user biasa maupun dengan mode superuser.
+
+    $ sudo cp powerline-shell.py /root
+    $ cp powerline-shell.py /home/dodi-venturaz/
+
+Setelah semua nya selesai sobat buka file .bashrc dan replace dengan file yang sobat 
+download DISINI:https://drive.google.com/file/d/0BwYWpIxF_C9keUJLQVBYUnNsX1U/view?usp=sharing. 
+Kalau sudah selesai silahkan save dan close file .bashrc nya kemudian close dan buka kembali terminal linux
